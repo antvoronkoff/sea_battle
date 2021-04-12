@@ -2,6 +2,8 @@ package com.antvoronkoff.seabattle;
 
 import java.util.Scanner;
 import java.io.IOException;
+import com.antvoronkoff.seabattle.process.*;
+import static com.antvoronkoff.seabattle.util.ConsoleUtil.clearScreen;
 
 public class Main{
 
@@ -9,21 +11,10 @@ public class Main{
 		clearScreen();
 		Scanner scanner = new Scanner(System.in);
 		boolean activeMenu = true;
-		//Intro
-			System.out.println("----SEA BATTLE----");
-			System.out.println("    			  ");
-			System.out.println("    |\\		*  ");
-			System.out.println("  __|_\\__         ");
-			System.out.println("  \\_____/    /|   ");
-			System.out.println("          __/_|__ ");
-			System.out.println("    *     \\_____/ ");
-			System.out.println("                  ");
-			System.out.println("------------------");
-			System.out.println("  Press any key   ");
-			System.out.println("   to continue    ");
-			scanner.nextLine(); 
-		clearScreen();
-
+			
+		ProcessIntro intro= new ProcessIntro();
+		intro.startProcess();
+		
 		while (activeMenu) {
 			
 			  
@@ -55,16 +46,6 @@ public class Main{
 				}
 			} 
 		}
-		
-		public static void clearScreen(){
-        try {
-            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        } catch (InterruptedException | IOException e) {
-            e.printStackTrace();
-        }
-    }
-		
-
-}	
+	}		
 
 
