@@ -6,12 +6,10 @@ import java.io.IOException;
 public class Main{
 
 	public static void main(String[] args) {
+		clearScreen();
 		Scanner scanner = new Scanner(System.in);
 		boolean activeMenu = true;
-		
-
-		while (activeMenu) {
-			//Intro
+		//Intro
 			System.out.println("----SEA BATTLE----");
 			System.out.println("    			  ");
 			System.out.println("    |\\		*  ");
@@ -23,14 +21,19 @@ public class Main{
 			System.out.println("------------------");
 			System.out.println("  Press any key   ");
 			System.out.println("   to continue    ");
-			scanner.nextLine();   
+			scanner.nextLine(); 
+		clearScreen();
+
+		while (activeMenu) {
 			
-			System.out.println("[0] Continue");
-			System.out.println("[1] New game");
-			System.out.println("[2] Load game");
-			System.out.println("[3] Save game");
-			System.out.println("[4] Multiplayer");
-			System.out.println("[5] Exit");
+			  
+			System.out.println("----SEA BATTLE----");
+			System.out.println(" [0] Continue");
+			System.out.println(" [1] New game");
+			System.out.println(" [2] Load game");
+			System.out.println(" [3] Save game");
+			System.out.println(" [4] Multiplayer");
+			System.out.println(" [5] Exit");
 			
 		
 			int usertype = scanner.nextInt();
@@ -41,13 +44,25 @@ public class Main{
 				case 3:
 				case 4:
 				System.out.println("This option in development");
+
 				break;
 				case 5:
 				activeMenu=false;
 				break;
+				default:
+				clearScreen();
+				break;
 				}
 			} 
 		}
+		
+		public static void clearScreen(){
+        try {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } catch (InterruptedException | IOException e) {
+            e.printStackTrace();
+        }
+    }
 		
 
 }	
