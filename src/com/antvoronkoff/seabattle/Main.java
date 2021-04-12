@@ -31,6 +31,8 @@ public class Main{
 			switch(usertype){
 				case 0:
 				case 1:
+				ProcessGame game= new ProcessGame();
+				game.startProcess();
 				case 2:
 				case 3:
 				case 4:
